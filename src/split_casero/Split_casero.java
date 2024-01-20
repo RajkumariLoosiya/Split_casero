@@ -4,7 +4,7 @@ public class Split_casero {
 	
 	public static void main (String[]args) {
 		
-		String texto = "Hola la caracola";
+		String texto = " Hola ,| la ,* caracola ";
 		
 		String[] arrayString = miSplit(texto);
 		
@@ -16,8 +16,9 @@ public class Split_casero {
 	
 	public static String[] miSplit(String palabraEntrada) {
 		
-		char delimitador = ' ';
+		char delimitador = ',';
 		int inicioPalabra = 0; 
+		palabraEntrada = palabraEntrada.trim().replaceAll("\\s++", "").replace("|", "").replace("*", ""); 
 		int cantidadPalabras = contarPalabras(palabraEntrada); 
 		
 		
@@ -43,8 +44,10 @@ public class Split_casero {
 	
 	public static int contarPalabras(String palabraEntrada) {
 		
-		char delimitador = ' ';
+		char delimitador = ',';
 		int cantidadPalabras = 0; 
+		
+		palabraEntrada = palabraEntrada.trim().replaceAll("\\s++", " ").replace("|", "").replace("*", ""); 
 		
 		for(int a = 0; a < palabraEntrada.length(); a++) {
 			
@@ -54,7 +57,7 @@ public class Split_casero {
 			
 		}
 		
-		return cantidadPalabras + 1 ;
+		return cantidadPalabras + 1;
 		
 	}
 	
