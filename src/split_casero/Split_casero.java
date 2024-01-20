@@ -4,21 +4,33 @@ public class Split_casero {
 	
 	public static void main (String[]args) {
 		
-		String texto = " Hola ,| la ,* caracola ";
+		// hola caracola asd hola usa caracola
+		
+		
+		String texto = " Hola la caracola cola hola ola ";
 		
 		String[] arrayString = miSplit(texto);
 		
-		for(String i: arrayString) {
-			System.out.println(i);
-		}
+//		for(String i: arrayString) {
+//			System.out.println(i);
+//		}
+		
+		String subcadena = "ola";
+		
+		System.out.println("En la palabra '" + texto + "' hay " + contarSubcadenas(arrayString, subcadena)
+			
+							+ " ocurrencias de la subcadena '" + subcadena + "'");
+		
 		
 	}
 	
+	
+	
 	public static String[] miSplit(String palabraEntrada) {
 		
-		char delimitador = ',';
+		char delimitador = ' ';
 		int inicioPalabra = 0; 
-		palabraEntrada = palabraEntrada.trim().replaceAll("\\s++", "").replace("|", "").replace("*", ""); 
+		palabraEntrada = palabraEntrada.trim(); 
 		int cantidadPalabras = contarPalabras(palabraEntrada); 
 		
 		
@@ -44,10 +56,10 @@ public class Split_casero {
 	
 	public static int contarPalabras(String palabraEntrada) {
 		
-		char delimitador = ',';
+		char delimitador = ' ';
 		int cantidadPalabras = 0; 
 		
-		palabraEntrada = palabraEntrada.trim().replaceAll("\\s++", " ").replace("|", "").replace("*", ""); 
+		palabraEntrada = palabraEntrada.trim().replaceAll("\\s++", " "); 
 		
 		for(int a = 0; a < palabraEntrada.length(); a++) {
 			
@@ -58,6 +70,23 @@ public class Split_casero {
 		}
 		
 		return cantidadPalabras + 1;
+		
+	}
+	
+	public static int contarSubcadenas(String[] arrayEntrada, String subcadena) {
+		
+		int contador = 0; 
+		
+		for(String i: arrayEntrada) {
+			
+			if(i.contains(subcadena)) {
+				contador ++; 
+			}
+			
+			
+		}
+		
+		return contador; 
 		
 	}
 	
